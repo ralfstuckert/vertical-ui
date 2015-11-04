@@ -8,8 +8,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<start-class>rst.vertical.service.catalog.Application</start-class>
-		<java.version>1.7</java.version>
+		<start-class>rst.vertical.service.cart.Application</start-class>
+		<java.version>1.8</java.version>
 		<maven.build.timestamp.format>yyyy</maven.build.timestamp.format>
 	</properties>
 

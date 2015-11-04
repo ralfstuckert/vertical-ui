@@ -1,5 +1,5 @@
 
-package rst.vertical.service.catalog;
+package rst.vertical.service.cart;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
