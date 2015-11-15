@@ -1,0 +1,9 @@
+
+<div ng-if="error" style="color: maroon" role="alert">{{error}}</div>
+<table ng-if="data">
+	<tr ng-repeat="item in data">
+		<td>{{item.name}}</td>
+		<td>{{item.description}}</td>
+		<td>{{item.articleNumber}}</td>
+	</tr>
+</table>
