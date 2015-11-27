@@ -1,0 +1,19 @@
+<div>
+<div ng-if="error" style="color: maroon" role="alert">{{error}}</div>
+<table ng-if="cart">
+	<tr ng-repeat="item in cart.items">
+		<td>{{item.articleNumber}}</td>
+		<td>{{item.name}}</td>
+		<td>{{item.count}}</td>
+		<td>{{item.price | currency : '&euro;' : 2 }}</td>
+		<td>{{item.price * item.count | currency : '&euro;' : 2 }}</td>
+	</tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td><span>sum: {{sum()| currency : '&euro;' : 2 }}</span></td>
+	<tr>
+	</tr>
+</table>
+</div>

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,17 +23,17 @@ public class CatalogController {
 		this.catalogService = catalogService;
 	}
 
-	@RequestMapping(value = "/all")
+	@RequestMapping(value = "/all", method=RequestMethod.GET)
 	public List<CatalogItem> getAllItems() {
 		return catalogService.getAllItems();
 	}
 	
-	@RequestMapping(value = "/items")
+	@RequestMapping(value = "/items", method=RequestMethod.GET)
 	public List<CatalogItem> getItems(@RequestParam(value = "article") String[] articleNumbers) {
 		return catalogService.getItems(articleNumbers);
 	}
 	
-	@RequestMapping(value = "/{article}")
+	@RequestMapping(value = "/{article}", method=RequestMethod.GET)
 	public CatalogItem getItem(@PathVariable(value = "article") final String articleNumber) {
 		return catalogService.getItem(articleNumber);
 	}

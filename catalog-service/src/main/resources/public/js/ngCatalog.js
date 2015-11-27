@@ -3,20 +3,30 @@
 angular.module('ngCatalog', [ 'ngResource' ])
 
 .config([ function() {
-
 } ])
 
-.service('ngCatalogRest', [ '$http', function($http) {
+.factory('ngCatalogService', [ '$http', function($http) {
 
-	this.getCatalog = function() {
+	function getCatalog() {
 		return $http.get('/catalog/api/all');
 	}
+	
+	return {
+		getCatalog : getCatalog
+	};
+
 } ])
 
-.controller('CatalogController', [ '$scope', 'ngCatalogRest', function($scope, ngCatalogRest) {
+.controller('CatalogController', [ '$scope', '$log', 'ngCatalogService', 'ngCartService', function($scope, $log, ngCatalogService, ngCartService) {
+	$scope.ngCartService = ngCartService;
+	ngCatalogService.getCatalog().then(function(result) {
+        $scope.data = result.data;
+    }, function(result) {
+        $scope.error = 'failed to load catalog: ' + result.data.error;
+    })
 } ])
 
-.directive('ngCatalog', [ 'ngCatalogRest', function(ngCatalogRest) {
+.directive('ngCatalog', [ 'ngCatalogService', function(ngCatalogService) {
 	return {
 		restrict : 'E',
 		controller : 'CatalogController',
@@ -29,11 +39,6 @@ angular.module('ngCatalog', [ 'ngResource' ])
 			}
 		},
 		link : function(scope, element, attrs) {
-			ngCatalogRest.getCatalog().then(function(result) {
-	             scope.data = result.data;
-	         }, function() {
-	             scope.error = "failed to load catalog from backend";
-	         })
 		}
 	};
 } ])

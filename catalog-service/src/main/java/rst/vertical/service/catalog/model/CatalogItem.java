@@ -8,12 +8,14 @@ public class CatalogItem {
 	private String articleNumber;
 	private String name;
 	private String description;
+	private double price;
 	
-	public CatalogItem(String articleNumber, String name, String description) {
+	public CatalogItem(String articleNumber, String name, String description, double price) {
 		super();
 		this.articleNumber = articleNumber;
 		this.name = name;
 		this.description = description;
+		this.price = price;
 	}
 	
 	protected CatalogItem() {}
@@ -29,6 +31,15 @@ public class CatalogItem {
 	public String getDescription() {
 		return description;
 	}
-	
+
+	public double getPrice() {
+		return price;
+	}
+
+	@Override
+	public String toString() {
+		return "CatalogItem [articleNumber=" + articleNumber + ", name=" + name
+				+ ", description=" + description + ", price=" + price + "]";
+	}
 	
 }

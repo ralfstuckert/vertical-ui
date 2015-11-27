@@ -5,5 +5,6 @@
 		<td>{{item.name}}</td>
 		<td>{{item.description}}</td>
 		<td>{{item.articleNumber}}</td>
+		<td><a class="btn btn-sm btn-primary" ng-click="ngCartService.addItem( item.articleNumber, 1 )">add to cart</a></td>
 	</tr>
 </table>
