@@ -1,3 +1,4 @@
 <div ng-if="error" style="color: maroon" role="alert">{{error}}</div>
-<button uib-popover-template="dynamicPopover.templateUrl"  popover-trigger="focus" popover-placement="bottom" type="button" class="btn btn-default">Items: {{cart.count}}</button>
+
+<a uib-popover-template="dynamicPopover.templateUrl"  popover-trigger="click" popover-append-to-body="true" popover-placement="bottom" class="btn  btn-primary btn-lrg"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> {{count()}}</a>
 

@@ -32,6 +32,13 @@ public class CartImpl implements Cart<CartItem> {
 		}
 	}
 	
+	public void removeAll(final String articleNumber) {
+		CartItem item = getExistingItem(articleNumber);
+		if (item != null) {
+			items.remove(item);
+		}
+	}
+	
 	private CartItem getExistingItem(final String articleNumber) {
 		return items.stream().filter(current -> Objects.equals(current.getArticleNumber(),articleNumber)).findFirst().orElse(null);
 	}

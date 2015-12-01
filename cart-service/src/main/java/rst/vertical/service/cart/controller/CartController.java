@@ -38,4 +38,10 @@ public class CartController {
 		return cartService.getExtendedCart();
 	}
 
+	@RequestMapping(value = "{articleNumber}", method=RequestMethod.DELETE)
+	public Cart<ExtendedCartItem> removeAll(@PathVariable("articleNumber") String articleNumer) {
+		cartService.removeAll(articleNumer);
+		return cartService.getExtendedCart();
+	}
+
 }

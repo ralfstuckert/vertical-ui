@@ -35,6 +35,10 @@ angular.module('ngCart', [])
 		$http.post('/cart/api/cart/add/'+id, data).then(updateCart, updateCartFailed)
 	}
 
+	function removeAll(id) {
+		$http.delete('/cart/api/cart/'+id).then(updateCart, updateCartFailed)
+	}
+
 	function updateCart(result) {
 		cart = result.data
 		$rootScope.$broadcast('ngCart:change', cart);
@@ -47,6 +51,7 @@ angular.module('ngCart', [])
 	return {
 		init : init,
 		addItem : addItem,
+		removeAll : removeAll,
 		getCart : getCart,
 		fetchCart : fetchCart
 	}
@@ -56,8 +61,8 @@ angular.module('ngCart', [])
 
 .controller(
 		'CartController',
-		[ '$scope', '$log', 'ngCartService', 'ngDialog', 
-				function($scope, $log, ngCartService, ngDialog) {
+		[ '$scope', '$log', 'ngCartService', 
+				function($scope, $log, ngCartService) {
 					$log.info("running the cart controller")
 					$scope.cart = {
 						count : -1
@@ -69,26 +74,32 @@ angular.module('ngCart', [])
 						$scope.error = 'failed to load cart: ' + result.data.error;
 					})
 					
-							$scope.sum = function() {
-								var cart = ngCartService.getCart()
-								var sum = 0.0;
-								for (var index in cart.items) {
-									var item = cart.items[index]
-									sum += item.count * item.price;
-								}
-								return sum;
-							}
+					$scope.sum = function() {
+						var cart = ngCartService.getCart()
+						var sum = 0.0;
+						for (var index in cart.items) {
+							var item = cart.items[index]
+							sum += item.count * item.price;
+						}
+						return sum;
+					}
 
-					$scope.showCart = function() {
-						ngDialog.open({
-					    template: 'cart/template/showCart.html',
-					    controller: ['$scope', 'ngCartService', function($scope, ngCartService) {
-					    }]
-					  });
+					$scope.count = function() {
+						var cart = ngCartService.getCart()
+						var count = 0;
+						for (var index in cart.items) {
+							var item = cart.items[index]
+							count += item.count;
+						}
+						return count;
+					}
+
+					$scope.removeAll = function(articleNumber) {
+						ngCartService.removeAll(articleNumber)
 					}
 
 					$scope.dynamicPopover = {
-							templateUrl: 'cart/template/showCart.html',
+							templateUrl: 'cart/template/content.html',
 						    title: 'Title'
 						  }
 					

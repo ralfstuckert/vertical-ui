@@ -68,4 +68,9 @@ public class CartService {
 		cart.removeItem(articleNumer);
 		return cart;
 	}
+
+	public CartImpl removeAll(final String articleNumer) {
+		cart.removeAll(articleNumer);
+		return cart;
+	}
 }
