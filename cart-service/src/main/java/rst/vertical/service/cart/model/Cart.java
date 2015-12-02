@@ -1,15 +1,46 @@
 package rst.vertical.service.cart.model;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-public interface Cart <T extends CartItem> {
+public class Cart {
 
-	int getCount();
+	private List<CartItem> items = new ArrayList<CartItem>();
+
+	public int getCount() {
+		return items.size();
+	}
 	
-	default public boolean isEmpty() {
-		return false;
+	public List<CartItem> getItems() {
+		return items;
 	}
 
-	List<T> getItems();
+	public void addItem(final String articleNumber) {
+		CartItem item = getExistingItem(articleNumber);
+		if (item == null) {
+			item = new CartItem(articleNumber);
+			items.add(item);
+		}
+		item.increaseCount(1);
+	}
+
+	public void removeItem(final String articleNumber) {
+		CartItem item = getExistingItem(articleNumber);
+		if (item != null) {
+			item.decreaseCount(1);
+		}
+	}
+	
+	public void removeAll(final String articleNumber) {
+		CartItem item = getExistingItem(articleNumber);
+		if (item != null) {
+			items.remove(item);
+		}
+	}
+	
+	private CartItem getExistingItem(final String articleNumber) {
+		return items.stream().filter(current -> Objects.equals(current.getArticleNumber(),articleNumber)).findFirst().orElse(null);
+	}
 
 }

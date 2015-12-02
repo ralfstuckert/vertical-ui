@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import rst.vertical.service.cart.model.Cart;
-import rst.vertical.service.cart.model.ExtendedCartItem;
 import rst.vertical.service.cart.service.CartService;
 
 @RestController
@@ -22,26 +21,23 @@ public class CartController {
 	}
 
 	@RequestMapping(value = "", method=RequestMethod.GET)
-	public Cart<ExtendedCartItem> getExtendedCart() {
-		return cartService.getExtendedCart();
+	public Cart getExtendedCart() {
+		return cartService.getCart();
 	}
 
 	@RequestMapping(value = "/add/{articleNumber}", method=RequestMethod.POST)
-	public Cart<ExtendedCartItem> addItem(@PathVariable("articleNumber") String articleNumer) {
-		cartService.addItem(articleNumer);
-		return cartService.getExtendedCart();
+	public Cart addItem(@PathVariable("articleNumber") String articleNumer) {
+		return cartService.addItem(articleNumer);
 	}
 
 	@RequestMapping(value = "/remove/{articleNumber}", method=RequestMethod.POST)
-	public Cart<ExtendedCartItem> removeItem(@PathVariable("articleNumber") String articleNumer) {
-		cartService.removeItem(articleNumer);
-		return cartService.getExtendedCart();
+	public Cart removeItem(@PathVariable("articleNumber") String articleNumer) {
+		return cartService.removeItem(articleNumer);
 	}
 
 	@RequestMapping(value = "{articleNumber}", method=RequestMethod.DELETE)
-	public Cart<ExtendedCartItem> removeAll(@PathVariable("articleNumber") String articleNumer) {
-		cartService.removeAll(articleNumer);
-		return cartService.getExtendedCart();
+	public Cart removeAll(@PathVariable("articleNumber") String articleNumer) {
+		return cartService.removeAll(articleNumer);
 	}
 
 }

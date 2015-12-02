@@ -13,7 +13,7 @@ import rst.vertical.service.catalog.model.CatalogItem;
 import rst.vertical.service.catalog.service.CatalogService;
 
 @RestController
-@RequestMapping(value = "api")
+@RequestMapping(value = "api/catalog")
 public class CatalogController {
 
 	private CatalogService catalogService;

@@ -8,7 +8,7 @@ angular.module('ngCatalog', [ 'ngResource' ])
 .factory('ngCatalogService', [ '$http', function($http) {
 
 	function getCatalog() {
-		return $http.get('/catalog/api/all');
+		return $http.get('/catalog/api/catalog/all');
 	}
 	
 	return {

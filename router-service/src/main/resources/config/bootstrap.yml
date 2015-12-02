@@ -9,7 +9,7 @@ zuul:
       url: http://localhost:9001
     cart:
       path: /cart/**
-      url: http://localhost:9002
+      url: http://localhost:9012
     web:
       path: /**
       url: http://localhost:9003
