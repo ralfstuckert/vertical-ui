@@ -3,3 +3,9 @@ spring:
   cloud:
     config :
       enabled: false
+zuul:
+  routes:
+    catalog:
+      path: /api/**
+      url: http://localhost:9001/api
+      
