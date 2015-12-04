@@ -5,17 +5,8 @@
 		<table class="table table-striped">
 			<tr ng-repeat="item in cart.items">
 				<td align="right">{{item.count}}</td>
-				<td>{{item.name}}</td>
-				<td align="right">{{item.price | currency : '&euro;' : 2 }}</td>
-				<td align="right">{{item.price * item.count | currency : '&euro;' : 2 }}</td>
+				<td>{{item.articleNumber}}</td>
 				<td><a class="btn" ng-click="removeAll(item.articleNumber)" ><span class="glyphicon glyphicon-trash" aria-hidden="true" /></a></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td>Sum:</td>
-				<td><span>{{sum()| currency : '&euro;' : 2 }}</span></td>
-				<td></td>
 			</tr>
 		</table>
 	</div>

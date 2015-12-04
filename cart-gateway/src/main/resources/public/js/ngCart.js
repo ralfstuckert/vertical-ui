@@ -74,16 +74,6 @@ angular.module('ngCart', [])
 						$scope.error = 'failed to load cart: ' + result.data.error;
 					})
 					
-					$scope.sum = function() {
-						var cart = ngCartService.getCart()
-						var sum = 0.0;
-						for (var index in cart.items) {
-							var item = cart.items[index]
-							sum += item.count * item.price;
-						}
-						return sum;
-					}
-
 					$scope.count = function() {
 						var cart = ngCartService.getCart()
 						var count = 0;

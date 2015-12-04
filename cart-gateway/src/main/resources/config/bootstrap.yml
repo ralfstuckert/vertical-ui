@@ -3,3 +3,9 @@ spring:
   cloud:
     config :
       enabled: false
+zuul:
+  routes:
+    cart:
+      path: /api/**
+      url: http://localhost:9002/api
+      
