@@ -1,0 +1,14 @@
+
+spring:
+  cloud:
+    config :
+      enabled: false
+zuul:
+  routes:
+    catalog:
+      path: /api/catalog/**
+      url: http://localhost:9001/api/catalog
+    cart:
+      path: /api/cart/**
+      url: http://localhost:9002/api/cart
+      

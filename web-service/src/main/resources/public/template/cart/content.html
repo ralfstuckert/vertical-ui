@@ -1,0 +1,13 @@
+<div>
+	<div ng-if="error" style="color: maroon" role="alert">{{error}}</div>
+	<div ng-if="cart.items.length == 0" >The cart is empty</div>
+	<div ng-if="cart.items.length > 0">
+		<table class="table table-striped">
+			<tr ng-repeat="item in cart.items">
+				<td align="right">{{item.count}}</td>
+				<td>{{item.articleNumber}}</td>
+				<td><a class="btn" ng-click="removeAll(item.articleNumber)" ><span class="glyphicon glyphicon-trash" aria-hidden="true" /></a></td>
+			</tr>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,20 @@
+
+<div ng-if="error" style="color: maroon" role="alert">{{error}}</div>
+<table ng-if="data" class="table table-striped">
+	<thead>
+		<tr>
+			<th>Article</th>
+			<th>Decription</th>
+			<th>Number</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="item in data">
+			<td>{{item.name}}</td>
+			<td>{{item.description}}</td>
+			<td align="right">{{item.articleNumber}}</td>
+			<td><a class="btn btn-sm btn-primary"
+				ng-click="ngCartService.addItem( item.articleNumber, 1 )"><span class="glyphicon glyphicon-plus" aria-hidden="true"> </a></td>
+		</tr>
+	</tbody>
+</table>
