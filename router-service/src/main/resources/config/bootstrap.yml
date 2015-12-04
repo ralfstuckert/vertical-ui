@@ -4,9 +4,15 @@ spring:
       enabled: false
 zuul:
   routes:
+    catalog-api:
+      path: /api/catalog/**
+      url: http://localhost:9011/api/catalog
     catalog:
       path: /catalog/**
       url: http://localhost:9011
+    cart-api:
+      path: /api/cart/**
+      url: http://localhost:9012/api/cart
     cart:
       path: /cart/**
       url: http://localhost:9012

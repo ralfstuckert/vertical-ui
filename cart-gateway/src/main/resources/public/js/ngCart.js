@@ -24,7 +24,7 @@ angular.module('ngCart', [])
 	}
 
 	function fetchCart() {
-		$http.get('/cart/api/cart').then(updateCart, updateCartFailed)
+		$http.get('/api/cart').then(updateCart, updateCartFailed)
 	}
 
 	function addItem(id, quantity) {
@@ -32,11 +32,11 @@ angular.module('ngCart', [])
 			'id' : id,
 			'quantity' : quantity
 		}
-		$http.post('/cart/api/cart/add/'+id, data).then(updateCart, updateCartFailed)
+		$http.post('/api/cart/add/'+id, data).then(updateCart, updateCartFailed)
 	}
 
 	function removeAll(id) {
-		$http.delete('/cart/api/cart/'+id).then(updateCart, updateCartFailed)
+		$http.delete('/api/cart/'+id).then(updateCart, updateCartFailed)
 	}
 
 	function updateCart(result) {
