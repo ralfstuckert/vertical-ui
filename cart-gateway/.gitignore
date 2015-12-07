@@ -1,2 +1,4 @@
 /target/
 /logs/
+/build/
+/.gradle/
