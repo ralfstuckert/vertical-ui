@@ -1,5 +1,5 @@
 
-package rst.vertical.gateway.catalog;
+package rst.vertical.gateway.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
