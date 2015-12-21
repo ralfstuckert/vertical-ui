@@ -13,4 +13,4 @@ All projects provide both maven and gradle based builds to create the jars. The 
 
 If you are not used to Maven or Gradle, you may use the self-installing gradle wrapper. Just the check out the projects and run `gradlew build` (resp. `gradlew.bat build` on Windows) in all projects. This installs gradle and builds the executable jars. 
 
-You have to start all server in order to run the application. To access the shop, direct your browser to the router on [http://localhost:9000].
+You have to start all server in order to run the application. To access the shop, direct your browser to the router on (http://localhost:9000).
