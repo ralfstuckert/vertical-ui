@@ -1,5 +1,5 @@
 # vertical-ui
-This repository contains the example client and server for the article [Vertical Limit](https://dzone.com/articles/vertical-limit).
+This repository contains the example client and server for the article [Vertical Limit]().
 
 There are three branches:
 
