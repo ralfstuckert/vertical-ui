@@ -1,5 +1,5 @@
 # vertical-ui
-This repository contains the example client and server for the article [Avoid Vertical Limits in Microservice Architectures](http://hardmockcafe.blogspot.de/2016/01/avoid-vertical-limits-in-microservice.html).
+This repository contains the example microservices and frontend for the article [Avoid Vertical Limits in Microservice Architectures](http://hardmockcafe.blogspot.de/2016/01/avoid-vertical-limits-in-microservice.html).
 
 There are three branches:
 
